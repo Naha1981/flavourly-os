@@ -16,7 +16,7 @@ RUN npm install --only=production
 COPY . .
 
 # Create non-root user
-RUN addgroup -g nodejs && adduser -D -u 1001 nextjs
+RUN addgroup -g 1001 nodejs && adduser -D -u 1001 -G nodejs nextjs
 
 # Change ownership of app directory
 USER nextjs
