@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: flavourly-evolution-api
+    env: docker
+    region: oregon
+    buildCommand: ""
+    startCommand: "npm run start"
+    port: 10000
+    healthCheckPath: "/health"
+    environment:
+      - SERVER_TYPE=http
+      - SERVER_PORT=10000
+      - AUTHENTICATION_API_KEY=flavourly123
+      - DATABASE_ENABLED=false
+    autoDeploy: true
+    # Correct root directory path
+    rootDirectory: "services/evolution"
