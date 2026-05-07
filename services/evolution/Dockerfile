@@ -1,5 +1,8 @@
 FROM node:18-alpine
 
+# Install shadow package for user management
+RUN apk add --no-cache shadow
+
 # Set working directory
 WORKDIR /app
 
