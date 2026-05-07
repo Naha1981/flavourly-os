@@ -7,13 +7,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install --only=production
 
 # Copy application code
 COPY . .
 
 # Create non-root user
-RUN addgroup -g nodejs && adduser -S nextjs -u 1001
+RUN addgroup -g nodejs && adduser -D -u 1001 nextjs
 
 # Change ownership of app directory
 USER nextjs
