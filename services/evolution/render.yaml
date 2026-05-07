@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: evolution-api
+    env: docker
+    region: oregon
+    buildCommand: ""
+    startCommand: "npm run start"
+    port: 10000
+    healthCheckPath: "/health"
+    environment:
+      - SERVER_TYPE=http
+      - SERVER_PORT=10000
+      - AUTHENTICATION_API_KEY=flavourly123
+      - DATABASE_ENABLED=false
+    autoDeploy: true
+
+# Optional: Add a static site for dashboard later
+# websites:
+#   - name: flavourly-dashboard
+#     region: oregon
+#     service: "flavourly-dashboard"
+#     autoDeploy: true
