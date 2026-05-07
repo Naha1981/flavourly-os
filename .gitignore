@@ -1,0 +1,36 @@
+# Node.js
+node_modules/
+package-lock.json
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.DS_Store
+
+# Monorepo specific
+apps/dashboard/node_modules/
+services/evolution/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+
+# Build outputs
+/dist
+/out
+/build
+/.next
+/.nuxt
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db

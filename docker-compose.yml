@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  evolution-api:
+    build: ./services/evolution
+    ports:
+      - "10000:10000"
+    environment:
+      - SERVER_TYPE=http
+      - SERVER_PORT=10000
+      - AUTHENTICATION_API_KEY=flavourly123
+      - DATABASE_ENABLED=false
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:10000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Dashboard service will be added later when developed
+  # dashboard:
+  #   build: ./apps/dashboard
+  #   ports:
+  #     - "3000:3000"
+
+  # Supabase service for local development (optional)
+  # supabase:
+  #   image: kong:2.8-alpine
+  #   ports:
+  #     - "5432:5432"
